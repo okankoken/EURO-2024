@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Data for UEFA European Championship winners
+champions = [
+    "Soviet Union", "Spain", "Italy", "West Germany", "Czechoslovakia",
+    "West Germany", "France", "Netherlands", "Denmark", "Germany",
+    "France", "Greece", "Spain", "Spain", "Portugal", "Italy"
+]
+
+# Count the number of championships for each country
+champion_counts = pd.Series(champions).value_counts().reset_index()
+champion_counts.columns = ["Country", "Championships"]
+
+# Plot the data
+plt.figure(figsize=(10, 6))
+plt.bar(champion_counts["Country"], champion_counts["Championships"], color='skyblue')
+plt.xlabel('Country')
+plt.ylabel('Number of Championships')
+plt.title('Number of UEFA European Championships by Country')
+plt.xticks(rotation=45)
+plt.show()
+
+# Display the data
+champion_counts
